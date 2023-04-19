@@ -1,6 +1,8 @@
 package com.ofss.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +29,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		System.out.println("Just a line");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -39,14 +42,16 @@ public class LoginServlet extends HttpServlet {
 		String pass=request.getParameter("pass");// variable name in Login.html
 		boolean isValidUser=UsersCredentials.validteUser(uname, pass);
 		// if true, route to success.jsp or failure.jsp
-		
+		PrintWriter pw=response.getWriter();	
 		if (isValidUser)
 		{
-			request.getRequestDispatcher("success.jsp").forward(request, response);
+			pw.println("Success");
+//			request.getRequestDispatcher("success.jsp").forward(request, response);
 		}
 		else
 		{
-			request.getRequestDispatcher("failure.jsp").forward(request, response);
+			pw.println("Failure");
+//			request.getRequestDispatcher("failure.jsp").forward(request, response);
 		}
 		
 	}
