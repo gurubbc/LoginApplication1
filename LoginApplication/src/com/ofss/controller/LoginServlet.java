@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("Just a line ");
+		System.out.println("Just a line s ");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
